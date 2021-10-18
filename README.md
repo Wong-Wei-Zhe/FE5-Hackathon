@@ -11,3 +11,5 @@ React component file = Dash-line between each word (exp: anime-character, anime-
 CSS naming (id and classname) = Underscore line between word (exp: anime_character, anime_title)
 
 API and Documentation: https://jikan.moe/
+
+test merge
