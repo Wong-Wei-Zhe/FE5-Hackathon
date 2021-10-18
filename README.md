@@ -48,3 +48,6 @@ Pull request is to be done on GIT HUB website.
    > git merge main your_branch_name <--> This merge your updated main/master branch to your current branch, locally
    > OR THE OTHER WAY IS
    > git pull origin main <--> Please ensure you are on your current branch to work, this merge using online repo's main to your local branch instead of locally. Best practice is to always keep your local main branch updated anyhow.
+
+4. How to make new branch?
+   > git checkout -b your_branch_name
