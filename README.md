@@ -12,4 +12,4 @@ CSS naming (id and classname) = Underscore line between word (exp: anime_charact
 
 API and Documentation: https://jikan.moe/
 
-test merge 2
+test merge 3
