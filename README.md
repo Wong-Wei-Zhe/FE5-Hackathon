@@ -10,4 +10,4 @@ Constant (const) = EVERY LETTER TO BE CAPTITAL (exp: ANIMECHARACTER, ANIMETITLE)
 React component file = Dash-line between each word (exp: anime-character, anime-title)
 CSS naming (id and classname) = Underscore line between word (exp: anime_character, anime_title)
 
-API: https://jikan.moe/
+API and Documentation: https://jikan.moe/
