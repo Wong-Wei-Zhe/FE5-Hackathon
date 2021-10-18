@@ -12,4 +12,39 @@ CSS naming (id and classname) = Underscore line between word (exp: anime_charact
 
 API and Documentation: https://jikan.moe/
 
-test merge 3
+GIT Tutorial
+
+\*\*NOTE, Always, develope on your OWN branch, pull request when you want to merge into master
+<--> This indicate comment why this command is used, don't include in actual command.
+There are configuration where 'master' is used instead of 'main', if 'main' don't work, use 'master'
+
+Pull request is to be done on GIT HUB website.
+
+1. How to get updated files from repo?
+
+   > git fetch --all <--> To get lastest changes
+   > git status <--> To view current branch status
+   > git branch <--> To ensure you're on the right branch
+   > git checkout your_branch_name <--> ONLY IF NOT ON CORRECT BRANCH
+   > git pull origin your_branch_name
+
+2. How to commit and push to your branch
+
+   > git branch <--> Ensure on correct branch
+   > git status <--> Check what file is untracked, modified, staged, unstaged
+   > git add -A <--> Add all untracked and modified file to staging area
+   > git commit -m "your_message"
+   > git push origin your_branch_name
+
+3. How to update your current branch with the updated master branch (Merging)
+
+   > git checkout main
+   > git fetch --all <--> get latest changes
+   > git pull origin main <--> This update your local main
+   > git checkout your_branch_name
+
+   ALTERNATIVE AVAILABLE
+
+   > git merge main your_branch_name <--> This merge your updated main/master branch to your current branch, locally
+   > OR THE OTHER WAY IS
+   > git pull origin main <--> Please ensure you are on your current branch to work, this merge using online repo's main to your local branch instead of locally. Best practice is to always keep your local main branch updated anyhow.
