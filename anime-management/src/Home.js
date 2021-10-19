@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
-import SignInSignUp from "./SignInSignUp";
+import SignInSignUp from "./components/SignInSignUp";
 
 function Home() {
   return (

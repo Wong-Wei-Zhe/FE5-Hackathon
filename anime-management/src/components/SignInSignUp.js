@@ -1,5 +1,7 @@
 import React from "react";
-import "./SignInSignUp.css";
+import "../SignInSignUp.css";
+import Jojo1 from "../picture/jojo1.jpg";
+import NarutoShippuden from "../picture/narutoShippuden.png";
 
 function SignInSignUp() {
   const [signUpScreen, setSignUpScreen] = React.useState("");
@@ -21,7 +23,7 @@ function SignInSignUp() {
       <div className={`container ${signUpScreen}`}>
         <div className="user signinBx">
           <div className="imgBx">
-            <img src="https://images.unsplash.com/photo-1576859958081-27de5c70262a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80" />
+            <img src={NarutoShippuden} />
           </div>
           <div className="formBx">
             <form>
@@ -67,7 +69,7 @@ function SignInSignUp() {
             </form>
           </div>
           <div className="imgBx">
-            <img src="https://ewscripps.brightspotcdn.com/dims4/default/13d048d/2147483647/strip/true/crop/1200x675+0+0/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2F23%2F4b%2F4e6f6e134d10b8ffec21b42ba972%2Fezuc-geumaewwel.jpg" />
+            <img src={Jojo1} />
           </div>
         </div>
       </div>
