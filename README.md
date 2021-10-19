@@ -7,3 +7,5 @@ Convention- Classname = CAPITAL LETTER on 1st character(exp: AnimeCharacter, Ani
 	    Cont = EVERY LETTER TO BE CAPTITAL(exp: ANIMECHARACTER, ANIMETITLE)
 
 API: https://jikan.moe/
+
+Have resized the image, transfer SignInSignUp into components folder.
