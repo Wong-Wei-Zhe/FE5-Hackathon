@@ -1,7 +1,6 @@
 import React from "react";
 import "../SignInSignUp.css";
 import Jojo1 from "../picture/jojo1.jpg";
-import NarutoShippuden from "../picture/narutoShippuden.png";
 import OnePiece from "../picture/onePiece.jpg";
 
 function SignInSignUp() {

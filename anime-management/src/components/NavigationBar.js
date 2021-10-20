@@ -22,6 +22,7 @@ function NavigationBar() {
         <li>
           <a href="#dd">DD</a>
         </li>
+
         <li style="float:right">
           <div class="search-container">
             <form>
