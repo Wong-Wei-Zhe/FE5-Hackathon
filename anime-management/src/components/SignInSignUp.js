@@ -2,6 +2,7 @@ import React from "react";
 import "../SignInSignUp.css";
 import Jojo1 from "../picture/jojo1.jpg";
 import NarutoShippuden from "../picture/narutoShippuden.png";
+import OnePiece from "../picture/onePiece.jpg";
 
 function SignInSignUp() {
   const [signUpScreen, setSignUpScreen] = React.useState("");
@@ -23,7 +24,7 @@ function SignInSignUp() {
       <div className={`container ${signUpScreen}`}>
         <div className="user signinBx">
           <div className="imgBx">
-            <img src={NarutoShippuden} />
+            <img src={OnePiece} />
           </div>
           <div className="formBx">
             <form>
