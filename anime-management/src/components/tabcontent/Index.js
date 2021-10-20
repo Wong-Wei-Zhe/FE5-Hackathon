@@ -1,16 +1,12 @@
-/*import React from "react"
-import "./App.css";*/
-
 import ReactDOM from "react-dom";
 import React, { Component } from "react";
 
 import Tabs from "./Tabs";
 import Panel from "./Panel";
 
-import "./App.css";
-import TabContent from "./components/tabcontent/Index";
+import "./tabcontent.css";
 
-class App extends Component {
+class TabContent extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [], userId: 4, array: [5, 1, 3, 4, 6] };
@@ -75,56 +71,12 @@ class App extends Component {
             <div>You have not completed any series yet!</div>
           </Panel>
         </Tabs>
-        <TabContent />
       </div>
     );
   }
 }
 
-export default App;
+export default TabContent;
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
-
-/*function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>mANIMEnt CSS Only Tabs</h1>
-        <div className="tab-wrap">
-          <input type="radio" name="tabs" id="tab1" checked />
-          <div className="tab-label-content" id="tab1-content">
-            <label for="tab1">TOP WATCH</label>
-            <div className="tab-content">Coming soon!</div>
-          </div>
-
-          <input type="radio" name="tabs" id="tab2" />
-          <div className="tab-label-content" id="tab2-content">
-            <label for="tab2">ON-GOING</label>
-            <div className="tab-content">
-              You have no on-going anime series. Click add to list now!
-            </div>
-          </div>
-
-          <input type="radio" name="tabs" id="tab3" />
-          <div className="tab-label-content" id="tab3-content">
-            <label for="tab3">ON HOLD</label>
-            <div className="tab-content">
-              You have no on hold series to watch!
-            </div>
-          </div>
-
-          <input type="radio" name="tabs" id="tab4" />
-          <div className="tab-label-content" id="tab4-content">
-            <label for="tab4">COMPLETED</label>
-            <div className="tab-content">It feels lonely here.</div>
-          </div>
-
-          <div className="slide"></div>
-        </div>
-      </header>
-    </div>
-  );
-}
-
-export default App;*/
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(<App />, rootElement);
