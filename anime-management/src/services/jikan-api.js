@@ -37,6 +37,7 @@ class JikanApiServices {
         airingStatus: data.airing,
         airingTextStatus: data.status,
         animeEpisodes: data.episodes,
+        animeScore: data.score,
       };
     });
   }

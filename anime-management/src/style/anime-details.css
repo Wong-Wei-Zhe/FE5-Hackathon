@@ -360,6 +360,14 @@
   left: -70px;
 }
 
+.button.button_watch_state.remove {
+  background: #e90000;
+}
+
+.remove_list_box {
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 992px) {
   .anime_details_container {
     max-width: 960px;
