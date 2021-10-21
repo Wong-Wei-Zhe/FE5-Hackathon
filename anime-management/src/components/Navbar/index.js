@@ -41,7 +41,7 @@ const Navbar = (props) => {
         </NavMenu>
         <Bars onClick={props.toggle} />
         <NavBtn>
-          <NavBtnLink to="/signin">Sign In</NavBtnLink>
+          <NavBtnLink to="/signin">Sign Out</NavBtnLink>
         </NavBtn>
       </Nav>
     </div>

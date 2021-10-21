@@ -2,6 +2,7 @@ import React from "react";
 import Cards from "../components/Cards";
 import TabContent from "../components/tabcontent/Index";
 import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
 import "./homepage.css";
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       <div style={{ backgroundColor: "#2d3238" }}>
         <TabContent />
       </div>
@@ -60,7 +61,7 @@ const Home = () => {
           })}
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import Cards from "../../components/Cards";
+import Layout from "../../components/Layout";
 
 const SearchPage = (props) => {
   console.log(props.location.state.animeName);
@@ -21,7 +22,7 @@ const SearchPage = (props) => {
   }, [searchAnimeName]);
 
   return (
-    <>
+    <Layout>
       <div
         style={{
           backgroundColor: "#2d3238",
@@ -69,7 +70,7 @@ const SearchPage = (props) => {
           })}
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
