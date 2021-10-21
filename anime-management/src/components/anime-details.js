@@ -23,33 +23,35 @@ function AnimeDetails(props) {
   let malId = props.location.state.id;
   const authentication = getAuth();
   const user = authentication.currentUser;
+  const [watchStatus, setWatchStatus] = React.useState("");
 
-  onAuthStateChanged(authentication, (user) => {
-    if (user) {
-      user = user.uid;
-    }
-  });
+  // onAuthStateChanged(authentication, (user) => {
+  //   if (user) {
+  //     user = user.uid;
+  //   }
+  // });
 
   const watchStatusSet = (option) => {
-    let watchStatus = "";
     switch (option) {
       case 1:
-        watchStatus = "Completed";
+        setWatchStatus("Completed");
+        console.log("complete");
         break;
       case 2:
-        watchStatus = "Plan to Watch";
+        setWatchStatus("Plan to Watch");
         break;
       case 3:
-        watchStatus = "Watching";
+        setWatchStatus("Watching");
         break;
       case 4:
-        watchStatus = "On Hold";
+        setWatchStatus("On Hold");
         break;
       default:
       // code block
     }
-    console.log(inWatchList);
+
     if (!inWatchList) {
+      console.log(inWatchList);
       addDoc(collection(db, "Users", user.uid, "Anime"), {
         mal_id: malId,
         watch_status: watchStatus,
@@ -74,6 +76,32 @@ function AnimeDetails(props) {
   };
 
   // React.useEffect(() => {
+  //   if (!inWatchList) {
+  //     console.log(inWatchList);
+  //     addDoc(collection(db, "Users", user.uid, "Anime"), {
+  //       mal_id: malId,
+  //       watch_status: watchStatus,
+  //       episodes: "0",
+  //     });
+  //   } else {
+  //     const queryResult = query(
+  //       collection(db, "Users", user.uid, "Anime"),
+  //       where("mal_id", "==", malId)
+  //     );
+
+  //     getDocs(queryResult).then((querySnapshot) =>
+  //       querySnapshot.forEach((docu) => {
+  //         //console.log(docu.id);
+  //         let docRef = doc(db, "Users", user.uid, "Anime", docu.id);
+  //         updateDoc(docRef, {
+  //           watch_status: watchStatus,
+  //         });
+  //       })
+  //     );
+  //   }
+  // }, [watchStatus]);
+
+  // React.useEffect(() => {
   //   checkInList();
   // }, [getAuth]);
 
@@ -83,7 +111,6 @@ function AnimeDetails(props) {
       collection(db, "Users", user.uid, "Anime"),
       where("mal_id", "==", malId)
     );
-
     const unsub = onSnapshot(q, (querySnapshot) => {
       querySnapshot.forEach((doc) => {
         if (!doc) {
@@ -230,7 +257,7 @@ function AnimeDetails(props) {
       </div>
       <button
         className="button button_watch_state update"
-        onClick={updateEpisodeWatched()}
+        onClick={updateEpisodeWatched}
       >
         Update
       </button>
@@ -247,29 +274,23 @@ function AnimeDetails(props) {
         <div className="watch_status_group">
           <button
             className="button button_watch_state completed"
-            onClick={watchStatusSet(1)}
+            onClick={(option_num = 1) => watchStatusSet(option_num)}
           >
             Completed
           </button>
 
           <button
             className="button button_watch_state plan_to_watch"
-            onClick={watchStatusSet(2)}
+            onClick={""}
           >
             Plan to Watch
           </button>
 
-          <button
-            className="button button_watch_state watching"
-            onClick={watchStatusSet(3)}
-          >
+          <button className="button button_watch_state watching" onClick={""}>
             Watching
           </button>
 
-          <button
-            className="button button_watch_state onhold"
-            onClick={watchStatusSet(4)}
-          >
+          <button className="button button_watch_state onhold" onClick={""}>
             onhold
           </button>
         </div>
@@ -292,7 +313,7 @@ function AnimeDetails(props) {
               </div>
               {watchlistStatus}
               <div className="rate_box btn-group btn-block text-center shadow-sm rounded">
-                <button className="like_button col-4 btn-dark2 " onClick="">
+                <button className="like_button col-4 btn-dark2 " onClick={""}>
                   <div className="rating_count text-muted">0</div>
                   <span className="rating_text">LIKE</span>
                 </button>
