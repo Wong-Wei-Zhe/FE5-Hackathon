@@ -1,8 +1,12 @@
 import React from "react";
 import Cards from "../components/Cards";
+import TabContent from "../components/tabcontent/Index";
+import { Link } from "react-router-dom";
+import "./homepage.css";
 
 const Home = () => {
   const [listAnime, setListAnime] = React.useState([{}]);
+  const [searchName, setSearchName] = React.useState("");
 
   const TopWatch = async () => {
     const result = await fetch("https://api.jikan.moe/v3/top/anime/1");
@@ -17,39 +21,46 @@ const Home = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundColor: "#2d3238",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <div
-        className="display_container"
-        style={{
-          backgroundColor: "#2d3238",
-          display: "flex",
-          flexWrap: "wrap",
-          height: "80vh",
-          marginRight: "10px",
-          marginLeft: "10px",
-          justifyContent: "center",
-        }}
-      >
-        {listAnime.map((element, index) => {
-          return (
-            <Cards
-              key={index}
-              animeTitle={element.title}
-              imageSource={element.image_url}
-              scoreRating={element.score}
-            />
-          );
-        })}
+    <>
+      <div style={{ backgroundColor: "#2d3238" }}>
+        <TabContent />
       </div>
-    </div>
+
+      <div className="search_mobile_container">
+        <input
+          onChange={(event) => {
+            setSearchName(event.target.value);
+          }}
+          placeholder="Can't Find Your Anime?"
+          className="search_mobile"
+        />
+        <Link
+          to={{
+            pathname: "/search",
+            state: { animeName: searchName },
+          }}
+          className="search_mobile_btn"
+        >
+          SEARCH
+        </Link>
+      </div>
+
+      <div className="main_phone_container">
+        <div className="display_phone_container">
+          {listAnime.map((element, index) => {
+            return (
+              <Cards
+                key={index}
+                ID={element.mal_id}
+                animeTitle={element.title}
+                imageSource={element.image_url}
+                scoreRating={element.score}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 };
 

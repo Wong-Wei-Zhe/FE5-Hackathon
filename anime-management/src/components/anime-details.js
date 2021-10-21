@@ -4,8 +4,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import React from "react";
 import JikanApi from "../services/jikan-api";
 
-function AnimeDetails() {
-  let malId = 21;
+function AnimeDetails(props) {
+  let malId = props.location.state.id;
 
   /*
   State to monitor episode list for lazy loading
@@ -52,12 +52,19 @@ function AnimeDetails() {
         episodesList: [...data.episodes],
         episodesLastPage: data.episodesLastPage,
       });
+
+      // if (data.episodes.length <= 0) {
+      //   setEpisodes({
+      //     ...animeEpisodes,
+      //     hasMore: false,
+      //   });
+      // }
     });
   }, []);
 
-  React.useEffect(() => {
-    console.log(animeData);
-  }, [animeData]);
+  // React.useEffect(() => {
+  //   console.log(animeEpisodes);
+  // }, [animeEpisodes]);
 
   /*
   Get the next page of episode list from API.
@@ -80,6 +87,14 @@ function AnimeDetails() {
         currentPage: nextPage,
       });
     });
+  };
+
+  let episodeVerify = () => {
+    if (animeEpisodes.episodesList.length <= 0) {
+      return "No Episode Data Available";
+    } else {
+      return "Loading...";
+    }
   };
 
   let inWatchList = (
@@ -177,7 +192,7 @@ function AnimeDetails() {
                 dataLength={animeEpisodes.episodesList.length}
                 next={fetchMoreEpisodes}
                 hasMore={animeEpisodes.hasMore}
-                loader={<h4>Loading...</h4>}
+                loader={<h4>{episodeVerify()}</h4>}
                 scrollableTarget="episode_list_box"
               >
                 {animeEpisodes.episodesList.map((data, index) => (

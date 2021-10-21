@@ -10,21 +10,11 @@ import {
   NavHome,
   NavSpan,
   NavSearch,
-  NavSearchBtn,
+  // NavSearchBtn,
 } from "./NavbarElement";
 
 const Navbar = (props) => {
-  const SearchAnime = async () => {
-    const result = await fetch(
-      "https://api.jikan.moe/v3/search/anime?q=naruto" // + animeName
-    );
-
-    const searchResult = await result.json();
-
-    console.log(searchResult);
-    console.log(searchResult.results[1].title);
-  };
-
+  const [searchName, setSearchName] = React.useState("");
   return (
     <div>
       <Nav>
@@ -34,8 +24,18 @@ const Navbar = (props) => {
           <NavSpan>nt</NavSpan>
         </NavLink>
         <NavMenu>
-          <NavSearch placeholder="Search" />
-          <NavLink to="/search" onClick={SearchAnime}>
+          <NavSearch
+            placeholder="Can't Find Your Anime?"
+            onChange={(event) => {
+              setSearchName(event.target.value);
+            }}
+          />
+          <NavLink
+            to={{
+              pathname: "/search",
+              state: { animeName: searchName },
+            }}
+          >
             SEARCH
           </NavLink>
         </NavMenu>

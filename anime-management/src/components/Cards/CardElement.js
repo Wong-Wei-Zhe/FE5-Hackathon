@@ -1,4 +1,5 @@
 import Styled from "styled-components";
+import { Link as LinkR } from "react-router-dom";
 
 export const CardContainerElements = Styled.div`
     display: block;
@@ -7,13 +8,13 @@ export const CardContainerElements = Styled.div`
     cursor: pointer;
     @media screen and (max-width: 1200px){
         -webkit-box-flex: 0;
-        flex: 0 0 25%;
-        max-width: 25%
+        flex: 0 0 33.3333333333%;
+        max-width: 33.3333333333%;
     }
     @media screen and (max-width: 768px){
         -webkit-box-flex: 0;
-        flex: 0 0 33.3333333333%;
-        max-width: 33.3333333333%;
+        flex: 0 0 50%;
+        max-width: 50%;
     }
     @media screen and (max-width: 540px){
         -webkit-box-flex: 0;
@@ -22,23 +23,34 @@ export const CardContainerElements = Styled.div`
     }
     @media screen and (max-width: 500px){
         -webkit-box-flex: 0;
+        flex: 0 0 70%;
+        max-width: 70%;
+    }
+    @media screen and (max-width: 400px){
+        -webkit-box-flex: 0;
         flex: 0 0 80%;
         max-width: 80%;
     }
+    @media screen and (max-width: 340px){
+        -webkit-box-flex: 0;
+        flex: 0 0 94.5%;
+        max-width: 94.5%;
+    }
 `;
 
-export const CardContainer = Styled.div`
+export const CardContainer = Styled(LinkR)`
   display: flex;
   flex-direction: column;
   width: 300px;
   height: 500px;
   word-wrap: break-word;
-  background-color: #32383e;
+  background-color: #33383d;
   border: 0 solid rgba(0, 0, 0, 0.6);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
   margin-bottom: 1.5rem;
   transition: all 0.2s ease-in-out;
+  text-decoration: none;
 
   &:hover{
       transform: scale(1.03);
@@ -46,6 +58,22 @@ export const CardContainer = Styled.div`
     z-index: 1;
     position:relative;
   }
+    @media screen and (max-width: 1200px){
+        width: 200px
+        height: 400px
+    }
+    @media screen and (max-width: 768px){
+        width: 200px
+        height: 400px
+    }
+    @media screen and (max-width: 540px){
+        width: 200px
+        height: 400px
+    }
+    @media screen and (max-width: 417px){
+        width: 300px
+        height: 400px
+    }
 `;
 
 export const CardImageWrapper = Styled.div`
