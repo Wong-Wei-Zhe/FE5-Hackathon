@@ -1,8 +1,7 @@
-import "./App.css";
-import ContentSlider from "./ContentSlider";
+import AnimeCarousel from "./AnimeCarousel/AnimeCarousel";
 
 function App() {
-  return <ContentSlider></ContentSlider>;
+  return <AnimeCarousel></AnimeCarousel>;
 }
 
 export default App;
