@@ -1,37 +1,50 @@
 import React from "react";
+// import Search from "../Search";
 import {
-  Nav,
   NavLink,
+  Nav,
   Bars,
   NavMenu,
   NavBtn,
   NavBtnLink,
-} from "./NavbarElements";
+  NavHome,
+  NavSpan,
+  NavSearch,
+  // NavSearchBtn,
+} from "./NavbarElement";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const [searchName, setSearchName] = React.useState("");
   return (
-    <>
+    <div>
       <Nav>
-        <Bars />
+        <NavLink to="/">
+          <NavSpan>m</NavSpan>
+          <NavHome>ANIME</NavHome>
+          <NavSpan>nt</NavSpan>
+        </NavLink>
         <NavMenu>
-          <NavLink to="/about" activeStyle>
-            About
-          </NavLink>
-          <NavLink to="/services" activeStyle>
-            Services
-          </NavLink>
-          <NavLink to="/contact-us" activeStyle>
-            Contact Us
-          </NavLink>
-          <NavLink to="/sign-up" activeStyle>
-            Sign Up
+          <NavSearch
+            placeholder="Can't Find Your Anime?"
+            onChange={(event) => {
+              setSearchName(event.target.value);
+            }}
+          />
+          <NavLink
+            to={{
+              pathname: "/search",
+              state: { animeName: searchName },
+            }}
+          >
+            SEARCH
           </NavLink>
         </NavMenu>
+        <Bars onClick={props.toggle} />
         <NavBtn>
-          <NavBtnLink to="/signin">SignIn</NavBtnLink>
+          <NavBtnLink to="/signin">Sign Out</NavBtnLink>
         </NavBtn>
       </Nav>
-    </>
+    </div>
   );
 };
 

@@ -5,9 +5,145 @@ import React from "react";
 import JikanApi from "../services/jikan-api";
 import { FcLike } from "react-icons/fc";
 import { AiTwotoneDislike } from "react-icons/ai";
+import {
+  collection,
+  query,
+  onSnapshot,
+  doc,
+  updateDoc,
+  deleteDoc,
+  where,
+  getDocs,
+  update,
+  addDoc,
+} from "firebase/firestore";
+import { db } from "../App";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Layout from "./Layout";
 
-function AnimeDetails() {
-  let malId = 21;
+function AnimeDetails(props) {
+  let malId = props.location.state.id;
+  const authentication = getAuth();
+  const user = authentication.currentUser;
+  const [watchStatus, setWatchStatus] = React.useState("");
+
+  // onAuthStateChanged(authentication, (user) => {
+  //   if (user) {
+  //     user = user.uid;
+  //   }
+  // });
+
+  const watchStatusSet = (option) => {
+    switch (option) {
+      case 1:
+        setWatchStatus("Completed");
+        console.log("complete");
+        break;
+      case 2:
+        setWatchStatus("Plan to Watch");
+        break;
+      case 3:
+        setWatchStatus("Watching");
+        break;
+      case 4:
+        setWatchStatus("On Hold");
+        break;
+      default:
+      // code block
+    }
+
+    if (!inWatchList) {
+      console.log(inWatchList);
+      addDoc(collection(db, "Users", user.uid, "Anime"), {
+        mal_id: malId,
+        watch_status: watchStatus,
+        episodes: "0",
+      });
+    } else {
+      const queryResult = query(
+        collection(db, "Users", user.uid, "Anime"),
+        where("mal_id", "==", malId)
+      );
+
+      getDocs(queryResult).then((querySnapshot) =>
+        querySnapshot.forEach((docu) => {
+          //console.log(docu.id);
+          let docRef = doc(db, "Users", user.uid, "Anime", docu.id);
+          updateDoc(docRef, {
+            watch_status: watchStatus,
+          });
+        })
+      );
+    }
+  };
+
+  // React.useEffect(() => {
+  //   if (!inWatchList) {
+  //     console.log(inWatchList);
+  //     addDoc(collection(db, "Users", user.uid, "Anime"), {
+  //       mal_id: malId,
+  //       watch_status: watchStatus,
+  //       episodes: "0",
+  //     });
+  //   } else {
+  //     const queryResult = query(
+  //       collection(db, "Users", user.uid, "Anime"),
+  //       where("mal_id", "==", malId)
+  //     );
+
+  //     getDocs(queryResult).then((querySnapshot) =>
+  //       querySnapshot.forEach((docu) => {
+  //         //console.log(docu.id);
+  //         let docRef = doc(db, "Users", user.uid, "Anime", docu.id);
+  //         updateDoc(docRef, {
+  //           watch_status: watchStatus,
+  //         });
+  //       })
+  //     );
+  //   }
+  // }, [watchStatus]);
+
+  // React.useEffect(() => {
+  //   checkInList();
+  // }, [getAuth]);
+
+  function checkInList() {
+    console.log(user.uid);
+    const q = query(
+      collection(db, "Users", user.uid, "Anime"),
+      where("mal_id", "==", malId)
+    );
+    const unsub = onSnapshot(q, (querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (!doc) {
+          setInWatchList(false);
+        } else {
+          let queryData = doc.data();
+          setWatchedEpisode(doc.episodes);
+          setWatchStatusRecord(doc.watch_status);
+          setInWatchList(true);
+        }
+      });
+    });
+    return () => unsub();
+  }
+
+  const updateEpisodeWatched = () => {
+    const queryResult = query(
+      collection(db, "Users", user.uid, "Anime"),
+      where("mal_id", "==", malId)
+    );
+
+    getDocs(queryResult).then((querySnapshot) =>
+      querySnapshot.forEach((docu) => {
+        //console.log(docu.id);
+        let docRef = doc(db, "Users", user.uid, "Anime", docu.id);
+        updateDoc(docRef, {
+          episodes: inputEpisode,
+        });
+      })
+    );
+  };
 
   /*
   State to monitor episode list for lazy loading
@@ -28,6 +164,9 @@ function AnimeDetails() {
     animeEpisodes: "",
   });
 
+  const [watchStatusRecord, setWatchStatusRecord] = React.useState(0);
+  const [watchedEpisode, setWatchedEpisode] = React.useState(0);
+  const [inWatchList, setInWatchList] = React.useState(false);
   const [inputEpisode, setInputEpisode] = React.useState("");
   const inputEpisode_ref = React.useRef();
 
@@ -36,6 +175,10 @@ function AnimeDetails() {
   */
   React.useEffect(() => {
     JikanApi.GetAnimeDetails(malId).then((data) => {
+      let episodesCount = data.animeEpisodes;
+      if (episodesCount === null) {
+        episodesCount = "-";
+      }
       //console.log(data.episodes);
       setAnimeData({
         animeTitle: data.animeTitle,
@@ -43,7 +186,7 @@ function AnimeDetails() {
         animePosterImg: data.animePosterImg,
         airingStatus: data.airingStatus,
         airingTextStatus: data.airingTextStatus,
-        animeEpisodes: data.animeEpisodes,
+        animeEpisodes: episodesCount,
       });
     });
 
@@ -54,17 +197,24 @@ function AnimeDetails() {
         episodesList: [...data.episodes],
         episodesLastPage: data.episodesLastPage,
       });
+
+      // if (data.episodes.length <= 0) {
+      //   setEpisodes({
+      //     ...animeEpisodes,
+      //     hasMore: false,
+      //   });
+      // }
     });
   }, []);
 
-  React.useEffect(() => {
-    console.log(animeData);
-  }, [animeData]);
+  // React.useEffect(() => {
+  //   console.log(animeEpisodes);
+  // }, [animeEpisodes]);
 
   /*
   Get the next page of episode list from API.
   */
-  let fetchMoreEpisodes = () => {
+  const fetchMoreEpisodes = () => {
     if (animeEpisodes.currentPage >= animeEpisodes.episodesLastPage) {
       setEpisodes({
         ...animeEpisodes,
@@ -84,7 +234,15 @@ function AnimeDetails() {
     });
   };
 
-  let inWatchList = (
+  const episodeVerify = () => {
+    if (animeEpisodes.episodesList.length <= 0) {
+      return "No Episode Data Available";
+    } else {
+      return "Loading...";
+    }
+  };
+
+  let inWatchListHTML = (
     <div className="watching_entry_box">
       <div>Currently in: </div>
       <div className="episode_input_box">
@@ -93,10 +251,11 @@ function AnimeDetails() {
           onChange={(event) => {
             setInputEpisode(event.target.value);
           }}
+          placeholder={watchedEpisode}
           value={inputEpisode}
           ref={inputEpisode_ref}
         ></input>
-        <div className="episode_input_total">/25</div>
+        <div className="episode_input_total">/{animeData.animeEpisodes}</div>
       </div>
       <button className="button button_watch_state update" id="button-1">
         <div id="circle1"></div>
@@ -110,7 +269,7 @@ function AnimeDetails() {
       <span className="watchlist_status_header">
         <span>Watch List</span>
       </span>
-      {inWatchList}
+      {inWatchList ? inWatchListHTML : <></>}
       <div className="entry_status_box">
         <div className="watch_status_group">
           <button className="button button_watch_state completed" id="button-1">
@@ -154,6 +313,7 @@ function AnimeDetails() {
   };
 
   return (
+    <Layout>
     <div className="anime_details_container">
       <div className="row">
         <div className="col-md-4">
@@ -230,7 +390,8 @@ function AnimeDetails() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </Layout>
   );
 }
 

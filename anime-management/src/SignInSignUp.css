@@ -64,7 +64,7 @@ section {
   width: 50%;
   height: 100%;
   background: #fff;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   padding: 40px;

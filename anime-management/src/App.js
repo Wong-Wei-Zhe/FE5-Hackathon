@@ -1,140 +1,44 @@
-import ReactDOM from "react-dom";
-import React, { Component } from "react";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
-import SignInSignUp from "./components/SignInSignUp";
-import Home from "./Home";
-import HeadingsMenu from "./components/HeadingsMenu";
-import Navbar from "./components/Navbar";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./Pages";
+import SearchPage from "./Pages/SearchPage";
+import AnimeDetails from "./components/anime-details";
+import OnHold from "./Pages/OnHold";
+import OnGoing from "./Pages/OnGoing";
+import Remove from "./Pages/Remove";
+import Completed from "./Pages/Completed";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import SignInSignUp from "./SignInSignUp";
+const firebaseConfig = {
+  apiKey: "AIzaSyCs3N_wVd-9kAiB0qOGSJ4YdYhqkpmzoQ4",
+  authDomain: "fe-project-d5662.firebaseapp.com",
+  projectId: "fe-project-d5662",
+  storageBucket: "fe-project-d5662.appspot.com",
+  messagingSenderId: "439558369352",
+  appId: "1:439558369352:web:251b5c57f99a08a1b6287d",
+  measurementId: "G-7MK6LDQ2H5",
+};
+const app = initializeApp(firebaseConfig);
 
-import Tabs from "./Tabs";
-import Panel from "./Panel";
-
-import "./App.css";
-import TabContent from "./components/tabcontent/Index";
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { data: [], userId: 4, array: [5, 1, 3, 4, 6] };
-  }
-
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            data: result,
-          });
-          console.log(this.state.data);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }
-
-  render() {
-    const { data, array, userId } = this.state;
-    return (
-      <div className="main-container">
-        <div style={{ marginLeft: "33px" }}>
-          <h1>mANIMEnt Tabs</h1>
-        </div>
-        <hr />
-        <br />
-        <Tabs>
-          <Panel title="TOP WATCH">
-            <div>Site under construction...</div>
-            {/*{data.map((event) => {
-              return (
-                <>
-                  <div key={event.id}>
-                    <h3>
-                      <label>Name : </label>
-                      {event.name}
-                    </h3>
-                  </div>
-                  <label>Email: </label>
-                  <span>{event.email}</span>
-                  <br />
-                  <label>Phone: </label>
-                  <span>{event.phone}</span>
-                  <br />
-                </>
-              );
-            })}*/}
-          </Panel>
-          <Panel title="ON-GOING">
-            <div>
-              Please select an ANIME series to have this section filled!
-            </div>
-          </Panel>
-          <Panel title="ON HOLD">
-            <div>There's nothing holding you here :P</div>
-          </Panel>
-          <Panel title="COMPLETED">
-            <div>You have not completed any series yet!</div>
-          </Panel>
-        </Tabs>
-        <TabContent />
-      </div>
-    );
-  }
-}
-
-export default App;
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
-
-/*function App() {
+const db = getFirestore(app);
+function App() {
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <header className="App-header">
-        <h1>mANIMEnt CSS Only Tabs</h1>
-        <div className="tab-wrap">
-          <input type="radio" name="tabs" id="tab1" checked />
-          <div className="tab-label-content" id="tab1-content">
-            <label for="tab1">TOP WATCH</label>
-            <div className="tab-content">Coming soon!</div>
-          </div>
-
-          <input type="radio" name="tabs" id="tab2" />
-          <div className="tab-label-content" id="tab2-content">
-            <label for="tab2">ON-GOING</label>
-            <div className="tab-content">
-              You have no on-going anime series. Click add to list now!
-            </div>
-          </div>
-
-          <input type="radio" name="tabs" id="tab3" />
-          <div className="tab-label-content" id="tab3-content">
-            <label for="tab3">ON HOLD</label>
-            <div className="tab-content">
-              You have no on hold series to watch!
-            </div>
-          </div>
-
-          <input type="radio" name="tabs" id="tab4" />
-          <div className="tab-label-content" id="tab4-content">
-            <label for="tab4">COMPLETED</label>
-            <div className="tab-content">It feels lonely here.</div>
-          </div>
-
-          <div className="slide"></div>
-        </div>
-      </header>
-    </div>
-=======
     <Router>
-      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/search" component={SearchPage} />
+        <Route path="/details" component={AnimeDetails} />
+        <Route path="/onhold" component={OnHold} />
+        <Route path="/ongoing" component={OnGoing} />
+        <Route path="/remove" component={Remove} />
+        <Route path="/completed" component={Completed} />
+        <Route path="/signin" component={SignInSignUp} />
+      </Switch>
     </Router>
->>>>>>> d89458f44c3fa0de7c42a1bede017b77308526f7
   );
 }
 
-export default App;*/
+export default App;
+export { db };

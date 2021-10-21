@@ -3,12 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import AnimeDetails from "./components/anime-details";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <AnimeDetails></AnimeDetails>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,0 +1,17 @@
+.display_container {
+  background-color: #2d3238;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  margin-right: 10px;
+  margin-left: 10px;
+  justify-content: center;
+}
+
+.main_container {
+  background-color: #2d3238;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
