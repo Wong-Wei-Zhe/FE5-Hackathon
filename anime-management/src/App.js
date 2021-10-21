@@ -1,5 +1,12 @@
 import ReactDOM from "react-dom";
 import React, { Component } from "react";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import "./App.css";
+import SignInSignUp from "./components/SignInSignUp";
+import Home from "./Home";
+import HeadingsMenu from "./components/HeadingsMenu";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Tabs from "./Tabs";
 import Panel from "./Panel";
@@ -85,6 +92,7 @@ ReactDOM.render(<App />, rootElement);
 
 /*function App() {
   return (
+<<<<<<< HEAD
     <div className="App">
       <header className="App-header">
         <h1>mANIMEnt CSS Only Tabs</h1>
@@ -121,6 +129,11 @@ ReactDOM.render(<App />, rootElement);
         </div>
       </header>
     </div>
+=======
+    <Router>
+      <Navbar />
+    </Router>
+>>>>>>> d89458f44c3fa0de7c42a1bede017b77308526f7
   );
 }
 

@@ -51,3 +51,6 @@ Pull request is to be done on GIT HUB website.
 
 4. How to make new branch?
    > git checkout -b your_branch_name
+   > API: https://jikan.moe/
+
+Have resized the image, transfer SignInSignUp into components folder.
