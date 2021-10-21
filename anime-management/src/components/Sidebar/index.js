@@ -20,11 +20,11 @@ const Sidebar = (props) => {
         <SidebarMenu>
           <SidebarLink to="/ongoing">On Going</SidebarLink>
           <SidebarLink to="/onhold">On Hold</SidebarLink>
-          <SidebarLink to="/removed">Removed</SidebarLink>
+          <SidebarLink to="/remove">Removed</SidebarLink>
           <SidebarLink to="/completed">Completed</SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/signin">Sign In</SidebarRoute>
+          <SidebarRoute to="/signin">Sign Out</SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

@@ -155,7 +155,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #256ce1;
+  background: #ff2f00;
   padding: 10px 22px;
   color: #fff;
   border: none;

@@ -1,10 +1,8 @@
-import ReactDOM from "react-dom";
 import React, { Component } from "react";
-
 import Tabs from "./Tabs";
 import Panel from "./Panel";
-
 import "./tabcontent.css";
+import TopContent from "../Topcontent";
 
 class TabContent extends Component {
   constructor(props) {
@@ -29,46 +27,39 @@ class TabContent extends Component {
   }
 
   render() {
-    const { data, array, userId } = this.state;
     return (
       <div className="main-container">
-        <div style={{ marginLeft: "33px" }}>
-          <h1>mANIMEnt Tabs</h1>
-        </div>
-        <hr />
-        <br />
-        <Tabs>
-          <Panel title="TOP WATCH">
-            <div>Site under construction...</div>
-            {/*{data.map((event) => {
-              return (
-                <>
-                  <div key={event.id}>
-                    <h3>
-                      <label>Name : </label>
-                      {event.name}
-                    </h3>
-                  </div>
-                  <label>Email: </label>
-                  <span>{event.email}</span>
-                  <br />
-                  <label>Phone: </label>
-                  <span>{event.phone}</span>
-                  <br />
-                </>
-              );
-            })}*/}
+        <Tabs className="tab_selection">
+          <Panel title="TOP WATCH" className="top_content_container">
+            <TopContent className="top_contents" />
           </Panel>
           <Panel title="ON-GOING">
             <div>
-              Please select an ANIME series to have this section filled!
+              <span style={{ color: "white" }}>
+                Please select an ANIME series to have this section filled!
+              </span>
             </div>
           </Panel>
           <Panel title="ON HOLD">
-            <div>There's nothing holding you here :P</div>
+            <div>
+              <span style={{ color: "white" }}>
+                There's nothing holding you here :P
+              </span>
+            </div>
+          </Panel>
+          <Panel title="REMOVED">
+            <div>
+              <span style={{ color: "white" }}>
+                You have no remove any items yet!
+              </span>
+            </div>
           </Panel>
           <Panel title="COMPLETED">
-            <div>You have not completed any series yet!</div>
+            <div>
+              <span style={{ color: "white" }}>
+                You have not completed any series yet!
+              </span>
+            </div>
           </Panel>
         </Tabs>
       </div>

@@ -8,11 +8,22 @@ import {
   CardImageWrapper,
   CardContainerElements,
 } from "./CardElement";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Cards = (props) => {
+  const displayDetails = () => {
+    console.log(props.ID);
+  };
   return (
     <CardContainerElements>
-      <CardContainer>
+      <CardContainer
+        onClick={displayDetails}
+        to={{
+          pathname: "/details",
+          state: { id: props.ID },
+        }}
+        malID={props.ID}
+      >
         <CardImageWrapper>
           <CardImage src={props.imageSource} alt="No Image Displaying" />
         </CardImageWrapper>

@@ -8,10 +8,8 @@
 }
 
 body {
-  background-color: #2d3238;
-
+  background: #2d3238 !important;
 }
-
 /* Don't know who's CSS is this, comment as back up
 label {
   cursor: pointer;

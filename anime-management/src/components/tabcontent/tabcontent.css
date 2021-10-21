@@ -1,19 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
 
 body {
-  background-color: #eee;
+  background-color: #2d3238;
 }
 
 .main-container {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  overflow: hidden;
+}
+
+.top_contents {
+  text-align: start;
 }
 
 #app {
   border-radius: 3px;
   border: 1px solid #e5e5e5;
-  margin: 15px;
   background-color: white;
 }
 
@@ -51,5 +53,11 @@ li {
 ul.inline,
 li.selected {
   border-bottom: 2px solid #337ab7;
-  color: #444;
+  color: #337ab7;
+}
+
+@media screen and (max-width: 845px) {
+  .main-container {
+    display: none;
+  }
 }
