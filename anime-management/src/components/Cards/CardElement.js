@@ -1,4 +1,4 @@
-import Styled from "styled-components";
+import Styled, { keyframes } from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 
 export const CardContainerElements = Styled.div`
@@ -38,6 +38,11 @@ export const CardContainerElements = Styled.div`
     }
 `;
 
+const FadeIn = keyframes`
+  0% {opacity:0;};
+  100% {opacity:1;};
+`;
+
 export const CardContainer = Styled(LinkR)`
   display: flex;
   flex-direction: column;
@@ -51,6 +56,7 @@ export const CardContainer = Styled(LinkR)`
   margin-bottom: 1.5rem;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+  animation: ${FadeIn} 2s;
 
   &:hover{
       transform: scale(1.03);

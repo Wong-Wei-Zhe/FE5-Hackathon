@@ -29,8 +29,7 @@ const SearchPage = (props) => {
           display: "flex",
           justifyContent: "flex-start",
           paddingTop: "60px",
-          paddingLeft: "80px",
-          alignItems: "end",
+          paddingLeft: "60px",
           color: "white",
         }}
       >
@@ -52,8 +51,8 @@ const SearchPage = (props) => {
             display: "flex",
             flexWrap: "wrap",
             height: "80vh",
-            marginRight: "10px",
-            marginLeft: "10px",
+            // marginRight: "10px",
+            // marginLeft: "10px",
             justifyContent: "center",
           }}
         >

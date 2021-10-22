@@ -3,6 +3,10 @@ import Tabs from "./Tabs";
 import Panel from "./Panel";
 import "./tabcontent.css";
 import TopContent from "../Topcontent";
+import WatchListComplete from "../WatchList/indexcp";
+import WatchListWatching from "../WatchList/indexptwt";
+import WatchListPlanToWatch from "../WatchList/indexptw";
+import WatchListOnHold from "../WatchList/indexptoh";
 
 class TabContent extends Component {
   constructor(props) {
@@ -33,33 +37,37 @@ class TabContent extends Component {
           <Panel title="TOP WATCH" className="top_content_container">
             <TopContent className="top_contents" />
           </Panel>
-          <Panel title="ON-GOING">
-            <div>
+          <Panel title="WATCHING">
+            {/* <div>
               <span style={{ color: "white" }}>
                 Please select an ANIME series to have this section filled!
               </span>
-            </div>
+            </div> */}
+            <WatchListWatching />
           </Panel>
-          <Panel title="ON HOLD">
-            <div>
+          <Panel title="PLAN TO WATCH">
+            {/* <div>
               <span style={{ color: "white" }}>
                 There's nothing holding you here :P
               </span>
-            </div>
+            </div> */}
+            <WatchListPlanToWatch />
           </Panel>
-          <Panel title="REMOVED">
-            <div>
+          <Panel title="COMPLETED">
+            {/* <div>
               <span style={{ color: "white" }}>
                 You have no remove any items yet!
               </span>
-            </div>
+            </div> */}
+            <WatchListComplete />
           </Panel>
-          <Panel title="COMPLETED">
-            <div>
+          <Panel title="ONHOLD">
+            {/* <div>
               <span style={{ color: "white" }}>
                 You have not completed any series yet!
               </span>
-            </div>
+            </div> */}
+            <WatchListOnHold />
           </Panel>
         </Tabs>
       </div>

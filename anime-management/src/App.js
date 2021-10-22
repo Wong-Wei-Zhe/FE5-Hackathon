@@ -28,14 +28,14 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/home" exact component={Home} />
         <Route path="/search" component={SearchPage} />
         <Route path="/details" component={AnimeDetails} />
         <Route path="/onhold" component={OnHold} />
         <Route path="/ongoing" component={OnGoing} />
         <Route path="/remove" component={Remove} />
         <Route path="/completed" component={Completed} />
-        <Route path="/signin" component={SignInSignUp} />
+        <Route path="/" component={SignInSignUp} />
       </Switch>
     </Router>
   );

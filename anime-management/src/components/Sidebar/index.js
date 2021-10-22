@@ -18,13 +18,13 @@ const Sidebar = (props) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink to="/ongoing">On Going</SidebarLink>
-          <SidebarLink to="/onhold">On Hold</SidebarLink>
-          <SidebarLink to="/remove">Removed</SidebarLink>
-          <SidebarLink to="/completed">Completed</SidebarLink>
+          <SidebarLink to="/ongoing">WATCHING</SidebarLink>
+          <SidebarLink to="/onhold">PLAN TO WATCH</SidebarLink>
+          <SidebarLink to="/remove">COMPLETED</SidebarLink>
+          <SidebarLink to="/completed">ON HOLD</SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/signin">Sign Out</SidebarRoute>
+          <SidebarRoute to="/">Sign Out</SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>
