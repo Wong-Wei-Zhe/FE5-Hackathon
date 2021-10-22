@@ -24,7 +24,7 @@ const Sidebar = (props) => {
           <SidebarLink to="/completed">ON HOLD</SidebarLink>
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/signin">Sign Out</SidebarRoute>
+          <SidebarRoute to="/">Sign Out</SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

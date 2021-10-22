@@ -18,7 +18,7 @@ const Navbar = (props) => {
   return (
     <div>
       <Nav>
-        <NavLink to="/">
+        <NavLink to="/home">
           <NavSpan>m</NavSpan>
           <NavHome>ANIME</NavHome>
           <NavSpan>nt</NavSpan>
@@ -41,7 +41,7 @@ const Navbar = (props) => {
         </NavMenu>
         <Bars onClick={props.toggle} />
         <NavBtn>
-          <NavBtnLink to="/signin">Sign Out</NavBtnLink>
+          <NavBtnLink to="/">Sign Out</NavBtnLink>
         </NavBtn>
       </Nav>
     </div>

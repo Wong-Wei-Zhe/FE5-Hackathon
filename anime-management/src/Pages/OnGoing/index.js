@@ -15,6 +15,7 @@ const OnGoing = () => {
         }}
       >
         <span
+          className="mobile_type_text"
           style={{
             color: "white",
           }}

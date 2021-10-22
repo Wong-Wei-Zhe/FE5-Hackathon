@@ -13,11 +13,7 @@ const Completed = () => {
           height: "100vh",
         }}
       >
-        <span
-          style={{
-            color: "white",
-          }}
-        >
+        <span className="mobile_type_text">
           You have not completed any series yet!
         </span>
       </div>
