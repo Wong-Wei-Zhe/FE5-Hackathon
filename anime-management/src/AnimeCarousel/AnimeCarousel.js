@@ -35,11 +35,6 @@ export default function AnimeCarousel() {
 
   return (
     <div className="carousel_container">
-      <div className="title_wrapper">
-        <div className="section_title">
-          <span>Top 5 Anime of All Time</span>
-        </div>
-      </div>
       {/* Carousel characteristics */}
       <Swiper
         navigation={true}
@@ -71,11 +66,13 @@ export default function AnimeCarousel() {
 
             {/* Anime Title */}
             <div className="famous_anime_title">
-              <h1>{famous[0].title}</h1>
+              <h1 className="famous_anime_title_text">{famous[0].title}</h1>
             </div>
             {/* Rating Score */}
             <div className="famous_anime_score">
-              <h2>Rating Score: {famous[0].score}/10</h2>
+              <h2 className="famous_anime_score_text">
+                Rating Score: {famous[0].score}/10
+              </h2>
             </div>
           </div>
         </SwiperSlide>
@@ -86,12 +83,14 @@ export default function AnimeCarousel() {
             <img className="famous_anime_image" src={famous[1].image_url} />
             {/* Anime Title */}
             <div className="famous_anime_title">
-              <h1>{famous[1].title}</h1>
+              <h1 className="famous_anime_title_text">{famous[1].title}</h1>
             </div>
 
             {/* Rating Score */}
             <div className="famous_anime_score">
-              <h2>Rating Score: {famous[1].score}/10</h2>
+              <h2 className="famous_anime_score_text">
+                Rating Score: {famous[1].score}/10
+              </h2>
             </div>
           </div>
         </SwiperSlide>
@@ -102,12 +101,14 @@ export default function AnimeCarousel() {
             <img className="famous_anime_image" src={famous[2].image_url} />
             {/* Anime Title */}
             <div className="famous_anime_title">
-              <h1>{famous[2].title}</h1>
+              <h1 className="famous_anime_title_text">{famous[2].title}</h1>
             </div>
 
             {/* Rating Score */}
             <div className="famous_anime_score">
-              <h2>Rating Score: {famous[2].score}/10</h2>
+              <h2 className="famous_anime_score_text">
+                Rating Score: {famous[2].score}/10
+              </h2>
             </div>
           </div>
         </SwiperSlide>
@@ -118,12 +119,14 @@ export default function AnimeCarousel() {
             <img className="famous_anime_image" src={famous[3].image_url} />
             {/* Anime Title */}
             <div className="famous_anime_title">
-              <h1>{famous[3].title}</h1>
+              <h1 className="famous_anime_title_text">{famous[3].title}</h1>
             </div>
 
             {/* Rating Score */}
             <div className="famous_anime_score">
-              <h2>Rating Score: {famous[3].score}/10</h2>
+              <h2 className="famous_anime_score_text">
+                Rating Score: {famous[3].score}/10
+              </h2>
             </div>
           </div>
         </SwiperSlide>
@@ -134,12 +137,14 @@ export default function AnimeCarousel() {
             <img className="famous_anime_image" src={famous[4].image_url} />
             {/* Anime Title */}
             <div className="famous_anime_title">
-              <h1>{famous[4].title}</h1>
+              <h1 className="famous_anime_title_text">{famous[4].title}</h1>
             </div>
 
             {/* Rating Score */}
             <div className="famous_anime_score">
-              <h2>Rating Score: {famous[4].score}/10</h2>
+              <h2 className="famous_anime_score_text">
+                Rating Score: {famous[4].score}/10
+              </h2>
             </div>
           </div>
         </SwiperSlide>
