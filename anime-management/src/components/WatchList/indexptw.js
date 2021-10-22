@@ -30,7 +30,7 @@ const WatchListPlanToWatch = () => {
     //console.log(user.uid);
     const queryResult = await query(
       collection(db, "Users", user.uid, "Anime"),
-      where("watch_status", "==", "Plan To Watch")
+      where("watch_status", "==", "Plan to Watch")
     );
 
     let queryList = [];

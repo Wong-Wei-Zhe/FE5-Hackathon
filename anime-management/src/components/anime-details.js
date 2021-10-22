@@ -398,12 +398,14 @@ function AnimeDetails(props) {
         <div className="row">
           <div className="col-md-4">
             <div className="left_content">
-              <div className="card shadow mb-3 rounded">
-                <img
-                  className="card-img-top"
-                  src={animeData.animePosterImg}
-                  alt="Error! Missing Image"
-                ></img>
+              <div className="outer-img-container">
+                <div className="card shadow mb-3 rounded img-container">
+                  <img
+                    className="card-img-top"
+                    src={animeData.animePosterImg}
+                    alt="Error! Missing Image"
+                  ></img>
+                </div>
               </div>
               {watchlistStatus}
               <div className="rate_box btn-group btn-block text-center shadow-sm rounded">
@@ -432,7 +434,7 @@ function AnimeDetails(props) {
               {inWatchList ? removeListButton : <></>}
             </div>
           </div>
-          <div className="col-md-8">
+          <div className="col-md-8 right-content">
             <h1 className={`anime_title ${toggle && "heart-active"}`}>
               {animeData.animeTitle}
             </h1>
@@ -458,7 +460,7 @@ function AnimeDetails(props) {
                 >
                   {animeEpisodes.episodesList.map((data, index) => (
                     <div className="episode" key={index}>
-                      <li style={{ color: "black" }}>
+                      <li style={{ color: "white" }}>
                         <div style={{ fontWeight: "bold" }}>
                           Episode {data.episode_id}{" "}
                         </div>

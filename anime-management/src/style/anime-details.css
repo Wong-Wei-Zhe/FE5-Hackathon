@@ -10,6 +10,7 @@
   padding-top: 1.5rem !important;
   margin-right: auto;
   margin-left: auto;
+  color: white;
 }
 
 .row {
@@ -35,7 +36,7 @@
 
 .anime_title {
   display: block;
-  font-size: 2em;
+  font-size: 2rem;
   margin-top: 1rem;
   font-weight: bold;
   text-align: left;
@@ -45,7 +46,7 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  height: 55vh;
+  height: auto;
   width: 160%;
   top: 30px;
   margin-left: 20px;
@@ -65,8 +66,9 @@
   overflow: auto;
   border-radius: 10px;
   margin-top: 10px;
-  margin-left: 20px;
+  margin-left: 0px;
   font-size: medium;
+  width: 95%;
 }
 
 #episode_list_box::-webkit-scrollbar {
@@ -189,15 +191,16 @@
 .watchlist_status_header > span {
   background-color: #ffffff;
   color: #464646;
-  font-size: 12px;
+  font-size: 18px;
   padding: 0 10px;
+  border-radius: 10px;
 }
 
 .watchlist_status_header {
   display: flex;
   justify-content: center;
   position: relative;
-  top: -22px;
+  top: -24px;
 }
 
 .entry_status_box {
@@ -368,9 +371,98 @@
   margin-top: 1rem;
 }
 
+.card {
+  width: 100%;
+}
+
 @media screen and (min-width: 992px) {
   .anime_details_container {
     max-width: 960px;
+  }
+}
+
+@media screen and (min-width: 428px) and (max-width: 767px) {
+  .anime_details_container {
+    max-width: 960px;
+  }
+
+  .img-container {
+    width: 50%;
+  }
+  .outer-img-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left_content {
+    position: unset;
+    top: 50px;
+    max-height: 100%;
+    overflow-y: unset;
+    z-index: 1;
+    -ms-overflow-style: unset; /* IE and Edge */
+    scrollbar-width: unset; /* Firefox */
+  }
+
+  .row.right-content {
+    margin-top: 50rem;
+  }
+
+  .anime_summary_box {
+    width: 90%;
+  }
+
+  #episode_list_box {
+    height: 500px;
+    overflow: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: -7px;
+    font-size: medium;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 427px) {
+  .anime_details_container {
+    max-width: 960px;
+  }
+
+  .outer-img-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .left_content {
+    position: unset;
+    top: 50px;
+    max-height: 100%;
+    overflow-y: unset;
+    z-index: 1;
+    -ms-overflow-style: unset; /* IE and Edge */
+    scrollbar-width: unset; /* Firefox */
+  }
+
+  .row.right-content {
+    margin-top: 50rem;
+  }
+
+  .anime_summary_box {
+    width: 90%;
+  }
+
+  #episode_list_box {
+    height: 500px;
+    overflow: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: -7px;
+    font-size: medium;
+    width: 95%;
   }
 }
 
@@ -399,7 +491,11 @@
 }
 
 .heart-active {
-  background-color: yellowgreen;
+  background-color: gray;
+  padding: 5px;
+  border-radius: 10px;
+  padding-left: 10px;
+  /* background-color: yellowgreen; */
 }
 @keyframes animate {
   0% {
