@@ -3,21 +3,19 @@
   padding: 0;
 }
 
-body {
-  background: black;
-  position: relative;
-  width: 100%;
-  height: 100vh;
+/* body {
+  background: #2d3238;
+  position: absolute;
+
   font-family: "Martel", serif;
-  overflow: hidden;
-}
+} */
 
 /* Carousel Component */
 .swiper-slide {
   background-position: center;
   background-size: cover;
   width: 300px;
-  height: 400px;
+  height: 300px;
 }
 
 /* Anime tile image */
@@ -29,15 +27,16 @@ body {
   object-fit: cover;
 }
 
-.container {
+.carousel_container {
   position: relative;
   width: 100%;
   height: 50vh;
-  background-color: #000;
+  background-color: #2d3238;
   display: block;
+  margin-bottom: 300px;
 }
 
-.container .swiper-container {
+.carousel_container .swiper-container {
   width: 70%;
   position: absolute;
   left: 50%;
@@ -58,13 +57,13 @@ body {
   justify-content: center;
   -ms-flex-line-pack: center;
   align-content: center;
-  padding: 3vw 0 2vw 0;
+  padding: 6vw 0 2vw 0;
 }
 
 .title_wrapper .section_title {
   color: #fff;
   text-align: left;
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 .title_wrapper .section_title span {
@@ -84,7 +83,6 @@ body {
 
 /* Area for all media */
 .famous_text_tile {
-  font-size: 15px;
   color: white;
   opacity: 1;
   transition: 0.5s ease;
@@ -109,7 +107,7 @@ body {
 .famous_anime_title {
   transition: 0.5s ease;
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -119,7 +117,7 @@ body {
 .famous_anime_score {
   transition: 0.5s ease;
   position: absolute;
-  top: 70%;
+  top: 110%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -131,13 +129,29 @@ body {
   backface-visibility: hidden;
 }
 
+@media screen and (max-width: 1440px) {
+  .carousel_container {
+    margin-bottom: 250px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .carousel_container {
+    margin-bottom: 200px;
+  }
+}
+
 @media (max-width: 768px) {
+  .carousel_container {
+    margin-bottom: 300px;
+  }
+
   .swiper-slide {
     width: 250px;
     height: auto;
   }
 
-  .container .swiper-container {
+  .carousel_container .swiper-container {
     bottom: -40vw;
   }
 
@@ -148,15 +162,38 @@ body {
   .title_wrapper {
     padding-top: 13vw;
   }
+
+  /* Anime title */
+  .famous_anime_title {
+    top: 30%;
+  }
+
+  /* Anime Rating */
+  .famous_anime_score {
+    top: 70%;
+  }
 }
 
 @media screen and (max-width: 425px) {
+  .carousel_container {
+    margin-bottom: 170px;
+  }
+
   .famous_text_tile {
     line-height: 40px;
   }
 }
 
+@media screen and (max-width: 375px) {
+  .carousel_container {
+    margin-bottom: 140px;
+  }
+}
+
 @media screen and (max-width: 320px) {
+  .carousel_container {
+    margin-bottom: 110px;
+  }
   .famous_text_tile {
     line-height: 30px;
   }

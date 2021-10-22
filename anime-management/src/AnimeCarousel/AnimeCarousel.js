@@ -5,13 +5,14 @@ import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "./AnimeCarousel.css";
 import SwiperCore, {
+  Autoplay,
   EffectCoverflow,
   Pagination,
   Navigation,
 } from "swiper/core";
 import React, { useState } from "react";
 
-SwiperCore.use([EffectCoverflow, Pagination, Navigation]);
+SwiperCore.use([Autoplay, EffectCoverflow, Pagination, Navigation]);
 
 export default function AnimeCarousel() {
   //Top 5 Anime
@@ -33,7 +34,7 @@ export default function AnimeCarousel() {
   }
 
   return (
-    <div className="container">
+    <div className="carousel_container">
       <div className="title_wrapper">
         <div className="section_title">
           <span>Top 5 Anime of All Time</span>
@@ -44,6 +45,10 @@ export default function AnimeCarousel() {
         navigation={true}
         effect={"coverflow"}
         centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         slidesPerView={window.innerWidth < 768 ? 1 : "auto"}
         loop={true}
         coverflowEffect={{
