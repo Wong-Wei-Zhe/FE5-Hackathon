@@ -18,7 +18,7 @@ const Navbar = (props) => {
   return (
     <div>
       <Nav>
-        <NavLink to="/">
+        <NavLink to="/home">
           <NavSpan>m</NavSpan>
           <NavHome>ANIME</NavHome>
           <NavSpan>nt</NavSpan>

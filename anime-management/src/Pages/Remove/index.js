@@ -5,6 +5,7 @@ import WatchListComplete from "../../components/WatchList/indexcp";
 const Remove = () => {
   return (
     <Layout>
+      <br />
       <WatchListComplete></WatchListComplete>
     </Layout>
   );

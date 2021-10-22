@@ -15,3 +15,22 @@
   align-items: center;
   height: 100vh;
 }
+
+@media screen and (max-width: 845px) {
+  .display_container {
+    background-color: #2d3238;
+    height: 70vh;
+  }
+  .main_container {
+    background-color: #2d3238;
+    height: 80vh;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+  .search_mobile_container {
+    background-color: #2d3238;
+    display: flex;
+  }
+}

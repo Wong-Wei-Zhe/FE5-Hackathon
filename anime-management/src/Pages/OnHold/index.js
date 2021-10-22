@@ -5,6 +5,7 @@ import WatchListPlanToWatch from "../../components/WatchList/indexptw";
 const OnHold = () => {
   return (
     <Layout>
+      <br />
       <WatchListPlanToWatch></WatchListPlanToWatch>
     </Layout>
   );

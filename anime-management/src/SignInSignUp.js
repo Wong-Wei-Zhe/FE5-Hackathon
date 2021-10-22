@@ -36,7 +36,7 @@ export default function SignInSignUp() {
     signInWithEmailAndPassword(authentication, email, password)
       .then((data) => {
         sessionStorage.setItem("Auth key", data._tokenResponse.refreshToken);
-        history.push("/");
+        history.push("/home");
         toast.success("Login succesfull", { pauseOnHover: true });
         const user = authentication.currentUser;
         console.log(user.uid);
