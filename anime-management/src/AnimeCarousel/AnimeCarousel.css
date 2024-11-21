@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* body {
+  background: #2d3238;
+  position: absolute;
+
+  font-family: "Martel", serif;
+} */
+
+/* Carousel Component */
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+/* Anime tile image */
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.carousel_container {
+  position: relative;
+  width: 100%;
+  height: 35vh;
+  background-color: #2d3238;
+  display: block;
+  margin-bottom: 300px;
+}
+
+.carousel_container .swiper-container {
+  width: 70%;
+  position: absolute;
+  left: 50%;
+  height: auto;
+  bottom: -16vw;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 2;
+  padding-bottom: 12vw;
+}
+
+.title_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  padding: 6vw 0 2vw 0;
+}
+
+.title_wrapper .section_title span {
+  display: block;
+}
+
+.swiper-pagination-fraction {
+  bottom: 0;
+}
+
+.swiper-pagination-bullet {
+  width: 35px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+/* Area for all media */
+.famous_text_tile {
+  color: white;
+  opacity: 1;
+  transition: 0.5s ease;
+}
+
+/* Anime Image fade out upon hover */
+.famous_text_tile:hover .famous_anime_image {
+  opacity: 0.3;
+}
+
+/* Anime Title fade in upon hover */
+.famous_text_tile:hover .famous_anime_title {
+  opacity: 1;
+}
+
+/* Anime Rating upon hover */
+.famous_text_tile:hover .famous_anime_score {
+  opacity: 1;
+}
+
+/* Anime title */
+.famous_anime_title {
+  transition: 0.5s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/* Anime Rating */
+.famous_anime_score {
+  transition: 0.5s ease;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/* Anime image */
+.famous_anime_image {
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+@media screen and (max-width: 1440px) {
+  .carousel_container {
+    margin-bottom: 250px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .carousel_container {
+    margin-bottom: 200px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (max-height: 1366px) {
+  .carousel_container {
+    margin-bottom: 200px;
+    margin-top: -10px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (max-height: 600px) {
+  .carousel_container {
+    margin-bottom: 200px;
+    margin-top: 90px;
+  }
+
+  .famous_anime_title_text {
+    font-size: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .carousel_container {
+    margin-bottom: 250px;
+    margin-top: 0px;
+  }
+
+  .swiper-slide {
+    width: 250px;
+    height: auto;
+  }
+
+  .carousel_container .swiper-container {
+    bottom: -40vw;
+  }
+
+  .title_wrapper .section_title {
+    font-size: 7vw;
+  }
+
+  .title_wrapper {
+    padding-top: 10px;
+  }
+
+  /* Anime title */
+  .famous_anime_title {
+    top: 30%;
+  }
+
+  /* Anime Rating */
+  .famous_anime_score {
+    top: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) and (max-height: 1024px) {
+  .carousel_container {
+    margin-bottom: 210px;
+    margin-top: -10px;
+  }
+}
+
+@media screen and (max-width: 540px) and (max-height: 720px) {
+  .carousel_container {
+    margin-bottom: 170px;
+    margin-top: 20px;
+  }
+
+  .famous_text_tile {
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .carousel_container {
+    margin-bottom: 170px;
+  }
+
+  .famous_text_tile {
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 414px) and (max-height: 736px) {
+  .carousel_container {
+    margin-bottom: 110px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .carousel_container {
+    margin-bottom: 140px;
+  }
+}
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+  .carousel_container {
+    margin-bottom: 140px;
+    margin-top: 70px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .carousel_container {
+    margin-bottom: 110px;
+  }
+  .famous_text_tile {
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) and (max-height: 568px) {
+  .carousel_container {
+    margin-bottom: 110px;
+    margin-top: 120px;
+  }
+}
+
+@media screen and (max-width: 280px) and (max-height: 653px) {
+  .carousel_container {
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+
+  .famous_text_tile {
+    line-height: 40px;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

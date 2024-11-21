@@ -4,6 +4,7 @@ import TabContent from "../components/tabcontent/Index";
 import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import "./homepage.css";
+import AnimeCarousel from "../AnimeCarousel/AnimeCarousel";
 
 const Home = () => {
   const [listAnime, setListAnime] = React.useState([{}]);
@@ -24,6 +25,20 @@ const Home = () => {
   return (
     <Layout>
       <div style={{ backgroundColor: "#2d3238" }}>
+        <div
+          style={{
+            fontSize: "17px",
+            width: "100%",
+            textAlign: "center",
+            paddingTop: "10px",
+            color: "white",
+          }}
+        >
+          <h1>Top 5 Anime of All Time</h1>
+        </div>
+
+        <AnimeCarousel></AnimeCarousel>
+
         <TabContent />
       </div>
 
